@@ -2,13 +2,22 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-family: 'Montserrat','Noto Sans KR', sans-serif;;
+    font-family: 'Montserrat','Noto Sans KR', sans-serif;
     line-height: 1.5;
   }
+  a{
+    font-family: 'Montserrat','Noto Sans KR', sans-serif;
+    color: #333;
+  }
+  button{
+    cursor:pointer;
+    font-family: 'Montserrat','Noto Sans KR', sans-serif;
+  }
   #wrap{
+    position:relative;
     width:100%;
     min-height:100vh;
-    background-color: #f2f3f4;
+    background-color: #f2f3f4d9;
   }
   .contents{
     width:80%;
@@ -31,7 +40,10 @@ const GlobalStyle = createGlobalStyle`
     line-height: 60px;
   }
   .red{
-    color:#f85151
+    color:#f85151;
+  }
+  :root{
+    --primary-color: #f85151;
   }
 `;
 

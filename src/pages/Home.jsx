@@ -1,5 +1,6 @@
 import React, { useRef, useState, useSyncExternalStore } from 'react';
 import Working from '../component/WorkList';
+import "../pages/Home.css";
 import GlobalStyle from '../component/style/GlobalStyle';
 import Box from '../component/style/Box'
 import Button from '../component/style/Button';
@@ -51,7 +52,7 @@ const Home = () => {
             <Box use="wBox" className="register">
               <label htmlFor='title' className="red">제목</label><input name="title" onChange={addInputHandler} value={listInfo.title} placeholder="제목을 입력하세요" autoFocus />
               <label htmlFor='contnets' className="red">내용</label><input name="contents" onChange={addInputHandler} value={listInfo.contents} placeholder="내용을 입력하세요" />
-              <Button bgColor="red" type='submit' onClick={registerBtn}>추가하기</Button>
+              <Button bgColor="var(--primary-color);" type='submit' use="submit" onClick={registerBtn}>추가하기</Button>
             </Box>
             <h2>Working</h2>
             <Box use="list" className="list">
@@ -62,13 +63,13 @@ const Home = () => {
               }
             </Box>
             <h2>Done</h2>
-            <section className="list">
+            <Box use="list" className="list">
               {
                 Work.filter((item) => item.isDone === true).map((item) => {
                   return (<Working key={item.id} item={item} completeChkBtn={completeChkBtn} removeBtn={removeBtn} />)
                 })
               }
-            </section>
+            </Box>
           </article>
         </div>
       </div>

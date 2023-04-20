@@ -3,7 +3,7 @@ const initialState = {
     work: [
         { id: 1, title: '리액트 공부하기', contents: '리액트를 열심히 공부해봅시다!', isDone: false },
         { id: 2, title: '리액트 공부하기', contents: '리액트를 열심히 공부해봅시다!', isDone: false },
-        { id: 3, title: '자바스크립트 공부하기', contents: '자바스크립트를 열심히 공부해보자', isDone: true }
+        { id: 3, title: '자바스크립트 공부하기', contents: '자바스크립트를 열심히 공부해보자', isDone: true}
     ],
     detail : {id: 0, title: '', contents: '', isDone: false}
 };
@@ -56,7 +56,7 @@ const counter = (state = initialState, action) => {
             // 새롭게 추가될 할 일
             // index가 없을 경우를 대비하여 조건문을 만든다.
             // 입력값이 없으면 경고 띄우기! 그 다음 추가되는 것도 막기! => 추가되는 것을 막는다는 뜻은 결국 기존 카드만 다시 보여줘라.
-            const id = state.work.length? state[state.work.length - 1].id + 1 : 0
+            const id = state.work.length ? state.work[state.work.length - 1].id + 1 : 0;
             const title = action.payload.title;
             const contents = action.payload.contents
             
@@ -72,17 +72,6 @@ const counter = (state = initialState, action) => {
                     isDone: false
                 }
                 // 계산된 속성 문법 - 동적 속성명
-
-                // const initialState = {
-                //     work: [
-                //         { id: 1, title: '리액트 공부하기', contents: '리액트를 열심히 공부해봅시다!', isDone: false },
-                //         { id: 2, title: '리액트 공부하기', contents: '리액트를 열심히 공부해봅시다!', isDone: false },
-                //         { id: 3, title: '자바스크립트 공부하기', contents: '자바스크립트를 열심히 공부해보자', isDone: true },
-                //         list
-                //     ],
-                //     detail : {id: 0, title: '', contents: '', isDone: false}
-                // };
-
                 return {...state, work:[...state.work , list]}
             }
 
@@ -111,15 +100,6 @@ const counter = (state = initialState, action) => {
 
         case GET_DETAIL:
             // find 메서드 : 일치하는 첫 번째 요소 반환
-            // const initialState = {
-                //     work: [
-                //         { id: 1, title: '리액트 공부하기', contents: '리액트를 열심히 공부해봅시다!', isDone: false },
-                //         { id: 2, title: '리액트 공부하기', contents: '리액트를 열심히 공부해봅시다!', isDone: false },
-                //         { id: 3, title: '자바스크립트 공부하기', contents: '자바스크립트를 열심히 공부해보자', isDone: true },
-                //         list
-                //     ],
-                //     detail : {id: 0, title: '', contents: '', isDone: false}
-                // };
             // action = {
             //     type: DELETE_WORK,
             //     payload: id

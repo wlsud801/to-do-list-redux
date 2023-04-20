@@ -11,6 +11,7 @@ const WBox = styled.div`
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 `
 const SBox = styled.div`
+    position: relative;
     width:31%;
     padding:30px;
     margin-bottom:3.5%;
@@ -26,6 +27,18 @@ const ListBox = styled.div`
     gap:3.5%;
     flex-wrap: wrap;
 `
+const ModalBox = styled.div`
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:40%;
+    height:300px;
+    padding:30px;
+    background-color:#fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 30px;
+`
 
 function Box({ use, children, ...rest }){
     switch(use){
@@ -35,7 +48,8 @@ function Box({ use, children, ...rest }){
             return <SBox {...rest}>{children}</SBox>
         case "list" :
             return <ListBox {...rest}>{children}</ListBox>
-
+        case "modal" :
+            return <ModalBox {...rest}>{children}</ModalBox>
     }
     
 }

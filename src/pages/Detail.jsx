@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import Button from '../component/style/Button';
+import Box from '../component/style/Box'
+import Title from '../component/style/Text'
 import styled, { css } from "styled-components";
 import { getDetailId } from "../redux/modules/counter";
+import GlobalStyle from "../component/style/GlobalStyle";
 
 function Detail() {
     // const params = useParams();
@@ -30,14 +34,17 @@ function Detail() {
 
 
   return (
-    <div>
-        <article>
-            <p>{todo.id}</p>
-            <button onClick={()=>{navigate("/")}}>이전으로</button>
-            <h1>{todo.title}</h1>
-            <p>{todo.contents}</p>
-        </article>
-    </div>
+    <>
+      <GlobalStyle />
+      <div id="wrap">
+          <Box use="modal">
+              <p>id : {todo.id}</p>
+              <Button use="link" onClick={()=>{navigate("/")}}>이전으로</Button>
+              <h1>{todo.title}</h1>
+              <p>{todo.contents}</p>
+          </Box>
+      </div>
+    </>
   )
 }
 
